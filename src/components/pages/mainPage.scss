@@ -1,0 +1,25 @@
+.main-page {
+    width: 100vw;
+    height: 100vh;
+    background: url(./img/background.svg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.main-page__img {
+    width: 70vh;
+    height: 70vh;
+    background: url(./img/solarSystem.svg) no-repeat;
+    background-size: cover;
+}
+
+.main-page__img > svg {
+    height: 100%;
+    width: 100%;
+}
+
+.main-page__info {
+    
+}
