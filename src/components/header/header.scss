@@ -1,9 +1,40 @@
 .header {
+    grid-area: 1 / 1 / 2 / 3;
     height: 90px;
     width: 100%;
-    position: absolute;
-    top: 0;
-    background-color: red;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
+    border-bottom: #393857 solid 2px;
+}
+
+.header__logo {
+    height: 100%;
+    text-transform: uppercase;
     color: #fff;
     display: flex;
+    align-items: center;
+    font-size: 4vw;
+    font-weight: 700;
+}
+
+.header__links {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.header__link,
+.header__link:active {
+    font-size: 20px;
+    text-decoration: none;
+    color: #b6b7cb;
+}
+
+.header__link:hover,
+.header__link:focus {
+    text-decoration: underline;
+    outline: none;
+    border: none;
 }
