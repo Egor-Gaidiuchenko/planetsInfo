@@ -1,36 +1,51 @@
-import React, {useState} from 'react';
-import {getData, getAPIData} from '../service/service';
+import React, {useState, useEffect} from 'react';
+import {getAPIData, getData} from '../service/service';
 
 import './detailPage.scss';
 
-const DetailPage = (planetName) => {
-    const planet = planetName.planet;
+const DetailPage = (planetInfo) => {
+    const planet = planetInfo.planet;
 
-    const [article, changeArticle] = useState('');
-    const [state, changeState] = useState({rotationTime: '', revolutionTime: '', radius: '', temperature: ''});
-    
-    function setState(planet) {
+    const [rotationTime, setRotationTime] = useState(0);
+    const [revolutionTime, setRevolutionTime] = useState(0);
+    const [radius, setRadius] = useState(0);
+    const [temperature, setTemperature] = useState(0);
+
+    useEffect(() => {
         getAPIData(planet)
-            .then(data => changeState(
-                {
-                    rotationTime: Math.round(data.sideralRotation / 24), 
-                    revolutionTime: Math.round(data.sideralOrbit), 
-                    radius: Math.round(data.equaRadius), 
-                    temperature: Math.round(data.avgTemp - 273)
-                }
-            ));
-    }
+            .then(data => {
+                changeRotationTime(data.sideralRotation);
+                changeRevolutionTime(data.sideralOrbit);
+                changeRadius(data.equaRadius);
+                changeTemperature(data.avgTemp);
+            });
+    });
 
-    setState(planet);
+    const changeRotationTime = (rotationTime) => {
+        setRotationTime(rotationTime);
+    };
+    const changeRevolutionTime = (revolutionTime) => {
+        setRevolutionTime(revolutionTime);
+    };
+    const changeRadius = (radius) => {
+        setRadius(radius);
+    };
+    const changeTemperature = (temperature) => {
+        setTemperature(temperature);
+    };
 
-    function setArticle() {
+    const [article, setArticle] = useState('');
+
+    useEffect(() => {
         getData(planet)
-            .then(data => changeArticle(data.article));
-    }
+            .then(data => {
+                changeArticle(data.article);
+            });
+    });
 
-    setArticle(planet);
-
-    const {rotationTime, revolutionTime, radius, temperature} = state;
+    const changeArticle = (article) => {
+        setArticle(article);
+    };
 
     return (
         <div className='detail-page'>
@@ -44,19 +59,19 @@ const DetailPage = (planetName) => {
             <div className='detail-page__facts'>
                 <div className='detail-page__fact'>
                     <span className='detail-page__fact-title'>rotation time</span>
-                    <span className='detail-page__fact-value'>{rotationTime} days</span>
+                    <span className='detail-page__fact-value'>{Math.abs((rotationTime / 24).toFixed(1))} days</span>
                 </div>
                 <div className='detail-page__fact'>
                     <span className='detail-page__fact-title'>revolution time</span>
-                    <span className='detail-page__fact-value'>{revolutionTime} days</span>
+                    <span className='detail-page__fact-value'>{Math.abs(Math.round(revolutionTime))} days</span>
                 </div>
                 <div className='detail-page__fact'>
                     <span className='detail-page__fact-title'>radius</span>
-                    <span className='detail-page__fact-value'>{radius} km</span>
+                    <span className='detail-page__fact-value'>{Math.round(radius)} km</span>
                 </div>
                 <div className='detail-page__fact'>
                     <span className='detail-page__fact-title'>average temperature</span>
-                    <span className='detail-page__fact-value'>{temperature} <span>&deg;</span>c</span>
+                    <span className='detail-page__fact-value'>{temperature - 273} <span>&deg;</span>c</span>
                 </div>
             </div>
         </div>

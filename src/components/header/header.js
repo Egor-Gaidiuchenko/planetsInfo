@@ -1,22 +1,21 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './header.scss';
 
 const Header = () => {
     return (
         <div className="header">
-            <div className='header__logo'>
-                the planets
-            </div>
+            <Link to={'/'} className='header__logo'>the planets</Link>
             <div className='header__links'>
-                <a className='header__link' href='#'>Mercury</a>
-                <a className='header__link' href='#'>Venus</a>
-                <a className='header__link' href='#'>Earth</a>
-                <a className='header__link' href='#'>Mars</a>
-                <a className='header__link' href='#'>Jupiter</a>
-                <a className='header__link' href='#'>Saturn</a>
-                <a className='header__link' href='#'>Uranus</a>
-                <a className='header__link' href='#'>Neptune</a>
+                <Link to={'/mercury'} className='header__link'>Mercury</Link>
+                <Link to={'/venus'} className='header__link'>Venus</Link>
+                <Link to={'/earth'} className='header__link'>Earth</Link>
+                <Link to={'/mars'} className='header__link'>Mars</Link>
+                <Link to={'/jupiter'} className='header__link'>Jupiter</Link>
+                <Link to={'/saturn'} className='header__link'>Saturn</Link>
+                <Link to={'/uranus'} className='header__link'>Uranus</Link>
+                <Link to={'/neptune'} className='header__link'>Neptune</Link>
             </div>
         </div>  
     );
