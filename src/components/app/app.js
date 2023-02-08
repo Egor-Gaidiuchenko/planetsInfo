@@ -20,6 +20,7 @@ const App = () => {
                     <Route exact path='/saturn' element={<DetailPage planet={'saturn'}/>}/>
                     <Route exact path='/uranus' element={<DetailPage planet={'uranus'}/>}/>
                     <Route exact path='/neptune' element={<DetailPage planet={'neptune'}/>}/>
+                    <Route exact path='' element={<MainPage/>}/>
                     <Route path='/' element={<MainPage/>}/>
                 </Routes>
             </div>
