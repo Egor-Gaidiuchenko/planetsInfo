@@ -13,6 +13,7 @@ const App = () => {
                 <Header/>
                 <Routes>
                     <Route exact path='/' element={<MainPage/>}/>
+                    {/* <Route exact path='' element={<MainPage/>}/> */}
                     <Route exact path='/mercury' element={<DetailPage planet={'mercury'}/>}/>
                     <Route exact path='/venus' element={<DetailPage planet={'venus'}/>}/>
                     <Route exact path='/earth' element={<DetailPage planet={'earth'}/>}/>
