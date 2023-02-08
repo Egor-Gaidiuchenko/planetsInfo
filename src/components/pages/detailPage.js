@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import {getAPIData, getData} from '../service/service';
+import getData from '../service/service';
+import articles from './articles.json';
 
 import './detailPage.scss';
 
@@ -12,7 +13,7 @@ const DetailPage = (planetInfo) => {
     const [temperature, setTemperature] = useState(0);
 
     useEffect(() => {
-        getAPIData(planet)
+        getData(planet)
             .then(data => {
                 changeRotationTime(data.sideralRotation);
                 changeRevolutionTime(data.sideralOrbit);
@@ -34,18 +35,13 @@ const DetailPage = (planetInfo) => {
         setTemperature(temperature);
     };
 
-    const [article, setArticle] = useState('');
+    let article;
 
-    useEffect(() => {
-        getData(planet)
-            .then(data => {
-                changeArticle(data.article);
-            });
-    });
-
-    const changeArticle = (article) => {
-        setArticle(article);
-    };
+    for (let key in articles) {
+        if (key === `${planet}`) {
+            article = articles[key].article;
+        }
+    }
 
     return (
         <div className='detail-page'>
