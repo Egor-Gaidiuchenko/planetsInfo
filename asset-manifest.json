@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/planetsInfo/static/css/main.cd051762.css",
-    "main.js": "/planetsInfo/static/js/main.2b3da4df.js",
+    "main.js": "/planetsInfo/static/js/main.7d4579cd.js",
     "static/media/solarSystem.svg": "/planetsInfo/static/media/solarSystem.ccaf751d96ae996f9ad6.svg",
     "static/media/earth.png": "/planetsInfo/static/media/earth.4bb9c961bb61ff408698.png",
     "static/media/jupiter.png": "/planetsInfo/static/media/jupiter.31064d548fe62445fb15.png",
@@ -15,10 +15,10 @@
     "static/media/burger.svg": "/planetsInfo/static/media/burger.65a80b975fcc121ceb14.svg",
     "index.html": "/planetsInfo/index.html",
     "main.cd051762.css.map": "/planetsInfo/static/css/main.cd051762.css.map",
-    "main.2b3da4df.js.map": "/planetsInfo/static/js/main.2b3da4df.js.map"
+    "main.7d4579cd.js.map": "/planetsInfo/static/js/main.7d4579cd.js.map"
   },
   "entrypoints": [
     "static/css/main.cd051762.css",
-    "static/js/main.2b3da4df.js"
+    "static/js/main.7d4579cd.js"
   ]
 }
