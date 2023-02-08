@@ -12,6 +12,7 @@ const App = () => {
             <div className='app'>
                 <Header/>
                 <Routes>
+                    <Route exact path='/planetsInfo' element={<MainPage/>}/>
                     <Route exact path='/mercury' element={<DetailPage planet={'mercury'}/>}/>
                     <Route exact path='/venus' element={<DetailPage planet={'venus'}/>}/>
                     <Route exact path='/earth' element={<DetailPage planet={'earth'}/>}/>
@@ -20,8 +21,6 @@ const App = () => {
                     <Route exact path='/saturn' element={<DetailPage planet={'saturn'}/>}/>
                     <Route exact path='/uranus' element={<DetailPage planet={'uranus'}/>}/>
                     <Route exact path='/neptune' element={<DetailPage planet={'neptune'}/>}/>
-                    <Route exact path='' element={<MainPage/>}/>
-                    <Route path='/' element={<MainPage/>}/>
                 </Routes>
             </div>
         </Router>

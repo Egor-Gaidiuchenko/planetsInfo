@@ -20,7 +20,7 @@ const Header = () => {
 
     return (
         <div className="header">
-            <Link to={'/'} onClick={() => {removeLinks();}} className='header__logo'>the planets</Link>
+            <Link to={'/planetsInfo'} onClick={() => {removeLinks();}} className='header__logo'>the planets</Link>
             <button className='header__burger' onClick={() => {toggleLinks();}}></button>
             <div className='header__links header__links--active'>
                 <Link to={'/mercury'} onClick={() => {removeLinks();}} className='header__link'>Mercury</Link>
